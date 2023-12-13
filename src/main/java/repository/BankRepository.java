@@ -16,8 +16,8 @@ public class BankRepository {
     public Account getAccount(long account_no){
         return allAccounts.getOrDefault(account_no, null);
     }
-    public Set<Long> allAccounts(){
-        return allAccounts.keySet();
+    public List<Account> allAccounts(){
+        return new ArrayList<Account>(allAccounts.values());
     }
     public List<Transaction> getAllTransactions(long account_no){
         if(isAccountExist(account_no)){

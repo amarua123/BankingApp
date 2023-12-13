@@ -45,9 +45,17 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
+    synchronized public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
+    @Override
+    public String toString() {
+        return "Name: " + accountInfo.getName()+", Balance: "+balance;
+    }
+    synchronized public void charge(BigDecimal amount){
+        setBalance(getBalance().subtract(amount));
+        System.out.println(amount+" is deducted !");
+    }
     private BigDecimal balance;
 }

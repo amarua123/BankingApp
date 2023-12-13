@@ -13,6 +13,7 @@ public class BankService {
         if(bankRepository.isAccountExist(account_no)){
             Account account = bankRepository.getAccount(account_no);
             account.setAadhar_number(aadhar_no);
+            System.out.println("Kyc Done !");
         }else{
             System.out.println("Account Not Exists !!");
         }
